@@ -26,6 +26,7 @@ jobs:
         - run: |
              date
              echo Development
+             echo ${{ github.event.inputs.name }}
     staging-deploy:
         if: ${{ github.event.inputs.name == 'Staging' }}
         runs-on: ubuntu-latest
@@ -33,6 +34,7 @@ jobs:
         - run: |
              date
              echo Staging
+             echo ${{ github.event.inputs.name }}
     production-deploy:
         if: ${{ github.event.inputs.name == 'Production' }} && ${{ github.event.inputs.Verification == 'production' }}
         runs-on: ubuntu-latest
@@ -40,3 +42,5 @@ jobs:
         - run: |
              date
              echo Production
+             echo ${{ github.event.inputs.name }}
+             echo ${{ github.event.inputs.Verification }}
