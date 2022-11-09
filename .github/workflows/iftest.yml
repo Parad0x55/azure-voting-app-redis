@@ -29,10 +29,10 @@ jobs:
              echo ${{ github.event.inputs.name }}
              echo ${{ github.event.inputs.version }}
              echo "# Release: ${{ github.event.inputs.name }}"  >> $GITHUB_STEP_SUMMARY
-             echo "Published at $published and created at $created" >> $GITHUB_STEP_SUMMARY    
-             echo $body  >> $GITHUB_STEP_SUMMARY
+             echo "Published at " >> $GITHUB_STEP_SUMMARY    
+             echo ""  >> $GITHUB_STEP_SUMMARY
              echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
-             echo "Release URL: $url" >> $GITHUB_STEP_SUMMARY
+             echo "Release URL: " >> $GITHUB_STEP_SUMMARY
     staging-deploy:
         if: ${{ github.event.inputs.name == 'Staging' }}
         runs-on: ubuntu-latest
