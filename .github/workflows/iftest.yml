@@ -29,8 +29,8 @@ jobs:
              echo ${{ github.event.inputs.name }}
              echo ${{ github.event.inputs.version }}
              echo "# Release: ${{ github.event.inputs.name }}"  >> $GITHUB_STEP_SUMMARY
-             echo "Published at $date" >> $GITHUB_STEP_SUMMARY    
-             echo "Deploy vesrion: ${{ github.event.inputs.version }}"  >> $GITHUB_STEP_SUMMARY
+             echo "Published at 'echo date'" >> $GITHUB_STEP_SUMMARY    
+             echo ##"Deploy vesrion: ${{ github.event.inputs.version }}"  >> $GITHUB_STEP_SUMMARY
              echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
              echo "Release URL: " >> $GITHUB_STEP_SUMMARY
     staging-deploy:
