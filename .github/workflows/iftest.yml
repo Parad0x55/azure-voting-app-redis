@@ -24,8 +24,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - run: |
-             DATE = date
-             echo Development
              echo ${{ github.event.inputs.name }}
              echo ${{ github.event.inputs.version }}
              echo "# Release: ${{ github.event.inputs.name }}"  >> $GITHUB_STEP_SUMMARY
