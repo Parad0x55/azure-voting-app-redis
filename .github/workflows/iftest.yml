@@ -35,7 +35,7 @@ jobs:
              date
              echo Staging
              echo ${{ github.event.inputs.name }}
-              echo "Skip " >> $GITHUB_STEP_SUMMARY
+             echo "# ${{ github.event.inputs.name }}/${{ github.event.inputs.version }}"  >> $GITHUB_STEP_SUMMARY
     production-deploy:
         if: ${{ github.event.inputs.name == 'Production' && github.event.inputs.Verification == 'production' }}
         runs-on: ubuntu-latest
@@ -48,3 +48,4 @@ jobs:
              echo ${{ github.event.inputs.Verification == 'production' }} 
              echo ${{ github.event.inputs.name == 'Production' }}
              echo ${{ github.event.inputs.Verification == 'production' }} && ${{ github.event.inputs.Verification == 'production' }}
+             echo "# ${{ github.event.inputs.name }}/${{ github.event.inputs.version }}"  >> $GITHUB_STEP_SUMMARY
