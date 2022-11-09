@@ -33,6 +33,7 @@ jobs:
              echo ##"Deploy vesrion: ${{ github.event.inputs.version }}"  >> $GITHUB_STEP_SUMMARY
              echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
              echo "Release URL: " >> $GITHUB_STEP_SUMMARY
+             echo date
     staging-deploy:
         if: ${{ github.event.inputs.name == 'Staging' }}
         runs-on: ubuntu-latest
