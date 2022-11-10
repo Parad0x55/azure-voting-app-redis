@@ -26,8 +26,9 @@ jobs:
         - run: |
              echo ${{ github.event.inputs.name }}
              echo ${{ github.event.inputs.version }}
-        - name: Adding summary
-             echo "# ${{ github.event.inputs.name }}/${{ github.event.inputs.version }}"  >> $GITHUB_STEP_SUMMARY
+        - name: Add summary
+          run: |
+             echo "# ${{ github.event.inputs.name }}/${{ github.event.inputs.version }}" >> $GITHUB_STEP_SUMMARY
     staging-deploy:
         if: ${{ github.event.inputs.name == 'Staging' }}
         runs-on: ubuntu-latest
