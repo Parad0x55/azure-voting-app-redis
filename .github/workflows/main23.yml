@@ -26,7 +26,6 @@ jobs:
         - run: |
              echo ${{ github.event.inputs.name }}
              echo ${{ github.event.inputs.version }}
-        - name: Adding summary
     staging-deploy:
         if: ${{ github.event.inputs.name == 'Staging' }}
         runs-on: ubuntu-latest
