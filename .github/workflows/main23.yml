@@ -54,4 +54,6 @@ jobs:
              echo ${{ github.event.inputs.Verification == 'production' }} 
              echo ${{ github.event.inputs.name == 'Production' }}
              echo ${{ github.event.inputs.Verification == 'production' }} && ${{ github.event.inputs.Verification == 'production' }}
+        - name: Add summary
+          run: |
              echo "# ${{ github.event.inputs.name }}/${{ github.event.inputs.version }}"  >> $GITHUB_STEP_SUMMARY
