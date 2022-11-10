@@ -41,7 +41,7 @@ jobs:
              echo ${{ github.event.inputs.name }}
         - name: Add summary
           run: |
-             echo "# ${{ github.event.inputs.name }}/${{ github.event.inputs.version }}" >> $GITHUB_STEP_SUMMARYY
+             echo "# ${{ github.event.inputs.name }}/${{ github.event.inputs.version }}" >> $GITHUB_STEP_SUMMARY
     production-deploy:
         if: ${{ github.event.inputs.name == 'Production' && github.event.inputs.Verification == 'production' }}
         runs-on: ubuntu-latest
