@@ -27,6 +27,8 @@ jobs:
              echo ${{ github.event.inputs.name }}
              echo ${{ github.event.inputs.version }}
              echo ${{ github.event.repository.name }}
+             echo $GITHUB_WORKSPACE
+             
         - name: Add summary
           run: |
              echo "# ${{ github.event.inputs.name }}/${{ github.event.inputs.version }}" >> $GITHUB_STEP_SUMMARY
