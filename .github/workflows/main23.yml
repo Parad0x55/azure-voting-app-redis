@@ -28,7 +28,7 @@ jobs:
              echo ${{ github.event.inputs.version }}
         - name: Checkout source code 
           uses: actions/checkout@v3
-        - name: Set summary
+        - name: Add summary
           run: |
              echo "# ${{ github.event.inputs.name }}/${{ github.event.inputs.version }}"  >> $GITHUB_STEP_SUMMARY
     staging-deploy:
@@ -39,7 +39,9 @@ jobs:
              date
              echo Staging
              echo ${{ github.event.inputs.name }}
-             echo "# ${{ github.event.inputs.name }}/${{ github.event.inputs.version }}"  >> $GITHUB_STEP_SUMMARY
+        - name: Add summary
+          run: |
+             echo "# ${{ github.event.inputs.name }}/${{ github.event.inputs.version }}"  >> $GITHUB_STEP_SUMMARYY
     production-deploy:
         if: ${{ github.event.inputs.name == 'Production' && github.event.inputs.Verification == 'production' }}
         runs-on: ubuntu-latest
