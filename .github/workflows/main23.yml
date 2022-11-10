@@ -1,0 +1,52 @@
+name: If test2
+on:
+  workflow_dispatch:
+    inputs:
+      Version:
+        type: string
+        default: latest
+        required: true
+      name:
+        type: choice
+        description: 'Environment'
+        options: 
+        - Development
+        - Staging
+        - Production
+        required: true
+      Verification:
+        type: string
+        required: false
+        
+jobs:
+    development-deploy:
+        if: ${{ github.event.inputs.name == 'Development' }}
+        runs-on: ubuntu-latest
+        steps:
+        - run: |
+             echo ${{ github.event.inputs.name }}
+             echo ${{ github.event.inputs.version }}
+        - name: Adding summary
+             echo "# ${{ github.event.inputs.name }}/${{ github.event.inputs.version }}"  >> $GITHUB_STEP_SUMMARY
+    staging-deploy:
+        if: ${{ github.event.inputs.name == 'Staging' }}
+        runs-on: ubuntu-latest
+        steps:
+        - run: |
+             date
+             echo Staging
+             echo ${{ github.event.inputs.name }}
+             echo "# ${{ github.event.inputs.name }}/${{ github.event.inputs.version }}"  >> $GITHUB_STEP_SUMMARY
+    production-deploy:
+        if: ${{ github.event.inputs.name == 'Production' && github.event.inputs.Verification == 'production' }}
+        runs-on: ubuntu-latest
+        steps:
+        - run: |
+             date
+             echo Production
+             echo ${{ github.event.inputs.name }}
+             echo ${{ github.event.inputs.Verification }}
+             echo ${{ github.event.inputs.Verification == 'production' }} 
+             echo ${{ github.event.inputs.name == 'Production' }}
+             echo ${{ github.event.inputs.Verification == 'production' }} && ${{ github.event.inputs.Verification == 'production' }}
+             echo "# ${{ github.event.inputs.name }}/${{ github.event.inputs.version }}"  >> $GITHUB_STEP_SUMMARY
