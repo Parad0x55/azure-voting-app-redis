@@ -7,6 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: date
+      - name: Overwrite Markdown
+        run: |
+             echo "Adding some Markdown content" >> $GITHUB_STEP_SUMMARY
   job2:
     runs-on: windows-latest
     steps:
