@@ -28,9 +28,8 @@ jobs:
              echo ${{ github.event.inputs.version }}
         - name: Checkout source code 
           uses: actions/checkout@v3
-        - name: Set env
+        - name: Set summary
           run: |
-             echo "RELEASE_VERSION=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
              echo "# ${{ github.event.inputs.name }}/${{ github.event.inputs.version }}"  >> $GITHUB_STEP_SUMMARY
     staging-deploy:
         if: ${{ github.event.inputs.name == 'Staging' }}
